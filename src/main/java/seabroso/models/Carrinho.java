@@ -1,7 +1,10 @@
 package seabroso.models;
 
+import lombok.Data;
+
 import java.util.ArrayList;
 
+@Data
 public class Carrinho {
     private ArrayList<ItemVenda> compras;
     private User cliente;

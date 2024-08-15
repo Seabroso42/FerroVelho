@@ -1,5 +1,8 @@
 package seabroso.models;
 
+import lombok.Data;
+
+@Data
 public class Ocorrencia {
     private User remetente;
     private String descricao;
@@ -15,43 +18,4 @@ public class Ocorrencia {
         this.isResolvida= false;
     }
 
-    public User getRemetente() {
-        return remetente;
-    }
-
-    public void setRemetente(User remetente) {
-        this.remetente = remetente;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public User getCulpado() {
-        return culpado;
-    }
-
-    public void setCulpado(User culpado) {
-        this.culpado = culpado;
-    }
-
-    public User getAssistente() {
-        return assistente;
-    }
-
-    public void setAssistente(User assistente) {
-        this.assistente = assistente;
-    }
-
-    public Boolean getResolvida() {
-        return isResolvida;
-    }
-
-    public void setResolvida(Boolean resolvida) {
-        isResolvida = resolvida;
-    }
 }

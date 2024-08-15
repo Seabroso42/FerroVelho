@@ -2,7 +2,6 @@ package seabroso.connection.DAO;
 
 import seabroso.connection.DataCon;
 import seabroso.enums.UserTypes;
-import seabroso.models.Anuncio;
 import seabroso.models.CarteiraDigital;
 import seabroso.models.NotaFiscal;
 import seabroso.models.User;
@@ -13,31 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NotaFiscalDAO {
-    public void salvarNota(NotaFiscal nota){}
-
-    public ArrayList<NotaFiscal> listarNotasFiscais(){
-        String sql= "SELECT * FROM NOTAFISCAL";
-
-        ResultSet result= null;
-        try{
-            PreparedStatement ps= DataCon.getConexao().prepareStatement(sql);
-            result= ps.executeQuery();
-
-            while (result.next()){
-                NotaFiscal nota= new NotaFiscal();
-                nota.setIdNotaFiscal(result.getLong("idnotafiscal"));
-                nota.setCliente(result.getLong("cliente"));
-                nota.setVendedor(result.getLong("vendedor"));
-                nota.setValorTotal(result.getDouble("valortotal"));
-                nota.setMomento(result.getTimestamp("momento").toLocalDateTime());
-                nota.setConteudo(result.getString("conteudo"));
-            }
-        }catch (SQLException | NumberFormatException | NullPointerException e){
-
-        }
-
-    }
+public class CarteiraDigitalDAO {
     public void atualizaHistorico(CarteiraDigital carteira){
         User dono= carteira.getDono();
         ResultSet result= null;
@@ -70,13 +45,17 @@ public class NotaFiscalDAO {
 
         }
 
-    public void deletarNotaFiscal(NotaFiscal nota){
+
+
+    }
+    public void salvaCarteira(){
+
+    }
+    public void atualizaSaldo(){
+
+    }
+    public void atualizaDebito(){
 
     }
 
-    public List<NotaFiscal> listarNotasFiscais(){
-        ArrayList<NotaFiscal> listagem= new ArrayList<>();
-
-        return listagem;
-    }
 }

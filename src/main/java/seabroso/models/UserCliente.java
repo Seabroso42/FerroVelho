@@ -1,28 +1,22 @@
 package seabroso.models;
 
-public class UserCliente extends User{
-    private long userId;
-    private String adress;
-    public UserCliente(){
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import seabroso.enums.UserTypes;
 
+@Data
+@EqualsAndHashCode(callSuper = true)
+public class UserCliente extends User{
+    private String endereco;
+
+    public UserCliente(){
+        super();
+        this.setTipo(UserTypes.CLIENTE);
     }
     public Ocorrencia reclamar(UserVendedor culpado, String descricao){
+        Ocorrencia reclamacao= null;
 
+        return reclamacao;
     }
 
-    public long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(long userId) {
-        this.userId = userId;
-    }
-
-    public String getAdress() {
-        return adress;
-    }
-
-    public void setAdress(String adress) {
-        this.adress = adress;
-    }
 }

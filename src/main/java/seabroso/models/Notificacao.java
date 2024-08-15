@@ -1,7 +1,10 @@
 package seabroso.models;
 
+import lombok.Data;
+
 import java.time.LocalDateTime;
 
+@Data
 public class Notificacao {
     private User destino;
     private LocalDateTime momento;
@@ -16,35 +19,4 @@ public class Notificacao {
         this.lida = false;
     }
 
-    public User getDestino() {
-        return destino;
-    }
-
-    public void setDestino(User destino) {
-        this.destino = destino;
-    }
-
-    public LocalDateTime getMomento() {
-        return momento;
-    }
-
-    public void setMomento(LocalDateTime momento) {
-        this.momento = momento;
-    }
-
-    public String getTexto() {
-        return texto;
-    }
-
-    public void setTexto(String texto) {
-        this.texto = texto;
-    }
-
-    public Boolean getLida() {
-        return lida;
-    }
-
-    public void setLida(Boolean lida) {
-        this.lida = lida;
-    }
 }

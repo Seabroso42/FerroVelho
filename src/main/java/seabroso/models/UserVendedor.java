@@ -1,11 +1,23 @@
 package seabroso.models;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import seabroso.enums.UserTypes;
+import seabroso.enums.VendorRanks;
+
 import java.util.ArrayList;
 
+@Data
+@EqualsAndHashCode(callSuper = true)
 public class UserVendedor extends User{
-    private long sellerId;
-    private CarteiraDigital carteira;
+    private VendorRanks rank;
     private ArrayList<Ocorrencia> problemas;
+
+    public UserVendedor(){
+        super();
+        this.setTipo(UserTypes.VENDEDOR);
+        this.setRank(VendorRanks.INCONCLUSIVO);
+    }
 
     public void criarAnuncio(){
 
@@ -26,19 +38,5 @@ public class UserVendedor extends User{
 
     }
 
-    public long getSellerId() {
-        return sellerId;
-    }
 
-    public void setSellerId(long sellerId) {
-        this.sellerId = sellerId;
-    }
-
-    public CarteiraDigital getCarteira() {
-        return carteira;
-    }
-
-    public void setCarteira(CarteiraDigital carteira) {
-        this.carteira = carteira;
-    }
 }
