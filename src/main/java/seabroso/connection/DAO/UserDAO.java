@@ -10,10 +10,11 @@ import seabroso.models.UserVendedor;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class UserDAO {
+public class UserDAO{
 //CREATE
     public static void cadastroUser(User usuario){
         String sql= "INSERT INTO USUARIOS (cpf, tipo, iduser, nome, email, senha, idcarteira, username) VALUES (?,?,?,?,?,?,?,?)";
@@ -71,8 +72,8 @@ public class UserDAO {
 
     }
 //READ
-    public static List<User> listaUser(){
-        List<User> listaBusca= null;
+    public static ArrayList<User> listaUser(){
+        ArrayList<User> listaBusca= null;
         String sql = "SELECT * FROM USUARIOS";
 
         ResultSet busca= null;
@@ -153,6 +154,22 @@ public class UserDAO {
         }
         return listaBusca;
 
+    }
+    public User buscaUsuario(long identificador){
+        ArrayList<User> pesquisa= listaUser();
+        User resultado = null;
+        try{
+            for (User usuario : pesquisa){
+                if (usuario.getId() == identificador | usuario.getCpf() == identificador){
+                    resultado= usuario;
+                } else {
+                    break;
+                }
+            }
+        }catch (NullPointerException e){
+            System.out.println("erro na busca-" + e.getMessage());
+        }
+        return resultado;
     }
 //UPDATE
     public static void atualizaUser(User usuario){

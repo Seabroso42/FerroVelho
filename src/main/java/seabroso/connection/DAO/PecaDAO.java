@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PecaDAO {
+    //CREATE
     public void cadastrarPeca(Peca produto){
 
     }
-    public void excluirPeca(Peca produto){
 
-    }
+    //READ
     public List<Peca> listarPecas(){
         ArrayList<Peca> listagem= new ArrayList<>();
         try {
@@ -21,7 +21,18 @@ public class PecaDAO {
         }
         return listagem;
     }
-    public void atualizarPeca(){
+    public Peca buscarPeca(){
+
+    }
+    //UPDATE
+    public void atualizarPeca(Peca peca){
+
+    }
+    public void atualizarPeca(Peca peca, String columLabel){
+
+    }
+    //DELETE
+    public void excluirPeca(Peca produto){
 
     }
 }
