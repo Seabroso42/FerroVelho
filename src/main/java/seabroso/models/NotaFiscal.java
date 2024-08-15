@@ -16,6 +16,7 @@ public class NotaFiscal {
     private Double valorTotal;
     private User vendedor;
     private User cliente;
+    private Boolean enviada;
 
 
     public NotaFiscal(){
