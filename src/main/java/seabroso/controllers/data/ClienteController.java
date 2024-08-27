@@ -1,4 +1,4 @@
-package seabroso.controllers;
+package seabroso.controllers.data;
 
 public class ClienteController {
     public void Reclamar(){
@@ -10,4 +10,9 @@ public class ClienteController {
     public void cancelarCompra(){
 
     }
+    public void buscarProduto(){
+
+    }
+
+
 }

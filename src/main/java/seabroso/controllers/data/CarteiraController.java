@@ -1,4 +1,4 @@
-package seabroso.controllers;
+package seabroso.controllers.data;
 
 import seabroso.connection.DataCon;
 import seabroso.enums.UserTypes;
@@ -45,6 +45,13 @@ public class CarteiraController {
         }catch (SQLException e){
 
         }
+    }
+
+    public void sacarComissao(){
+
+    }
+    public void quitarDebito(){
+
     }
 
 }

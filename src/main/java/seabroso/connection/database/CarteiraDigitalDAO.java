@@ -1,4 +1,4 @@
-package seabroso.connection.DAO;
+package seabroso.connection.database;
 
 import seabroso.models.CarteiraDigital;
 

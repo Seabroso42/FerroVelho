@@ -1,17 +1,12 @@
-package seabroso.connection.DAO;
+package seabroso.connection.database;
 
 import seabroso.connection.DataCon;
-import seabroso.enums.UserTypes;
-import seabroso.models.Anuncio;
-import seabroso.models.CarteiraDigital;
 import seabroso.models.NotaFiscal;
-import seabroso.models.User;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class NotaFiscalDAO {
     //CREATE

@@ -1,7 +1,6 @@
-package seabroso.connection.DAO;
+package seabroso.connection.database;
 
 import seabroso.connection.DataCon;
-import seabroso.enums.UserTypes;
 import seabroso.models.User;
 import seabroso.models.UserAdmin;
 import seabroso.models.UserCliente;
@@ -11,8 +10,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
+
+//propagar as exceções para as interfaces graficas 
+
 
 public class UserDAO{
 //CREATE
