@@ -5,9 +5,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DataCon {
-    private static final String URLDATA= "";
-    private static final String DATAUSERNAME= "";
-    private static final String DATAPASSWORD= "";
+    private static final String URLDATA= "jdbc:mysql://monorail.proxy.rlwy.net:38525/ferroVelho";
+    private static final String DATAUSERNAME= "root";
+    private static final String DATAPASSWORD= "NwXeYxVHfDuHqODHvvdWuQyajIoVVlhe";
     private static Connection conexao;
 
     public static void main(String[] args) {

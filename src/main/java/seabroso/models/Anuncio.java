@@ -2,32 +2,36 @@ package seabroso.models;
 
 import lombok.Data;
 
+import java.util.ArrayList;
+
 @Data
 public class Anuncio {
     private long idAnuncio;
-    private User dono;
+    private UserVendedor dono;
     private Peca produto;
     private String titulo;
     private String descricao;
     private Boolean isAtivo;
     private String cidade;
 
-    public Anuncio(long idAnuncio, User dono, Peca produto, String titulo, String descricao, Boolean isAtivo, String cidade) {
-        this.idAnuncio = idAnuncio;
+    public Anuncio(){
+
+    }
+
+    public void ocultarAnuncio(){
+        this.setIsAtivo(false);
+    }
+    public Anuncio(UserVendedor dono, Peca produto) {
         this.dono = dono;
         this.produto = produto;
-        this.titulo = titulo;
-        this.descricao = descricao;
-        this.isAtivo = isAtivo;
-        this.cidade = cidade;
+        this.isAtivo = true;
     }
 
-    public static void main(String[] args) {
 
-    }
-
-    public void addCarrinho(){
-
+    public void addCarrinho(UserCliente cliente, int quantidade){
+        ArrayList<ItemVenda> cart = cliente.getPedido().getCompras();
+        ItemVenda produto = new ItemVenda(quantidade, this.getProduto());
+        cart.add(produto);
     }
 
 }

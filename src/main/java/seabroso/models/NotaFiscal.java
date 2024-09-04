@@ -20,7 +20,12 @@ public class NotaFiscal {
 
 
     public NotaFiscal(){
+        this.setEnviada(false);
         this.momento= LocalDateTime.now();
+    }
+
+    public void marcarEnvio(){
+        this.setEnviada(true);
     }
 
 

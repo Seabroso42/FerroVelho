@@ -12,14 +12,21 @@ import java.util.ArrayList;
 public class UserVendedor extends User{
     private VendorRanks rank;
     private ArrayList<Ocorrencia> problemas;
+    private ArrayList<Anuncio> anuncios;
+    private ArrayList<Anuncio> anunciosInativos;
 
     public UserVendedor(){
         super();
         this.setTipo(UserTypes.VENDEDOR);
         this.setRank(VendorRanks.INCONCLUSIVO);
+        this.anuncios= new ArrayList<>();
     }
 
-    public void criarAnuncio(){
+    public void criarAnuncio(Peca produto,String titulo){
+        Anuncio venda= new Anuncio(this, produto);
+        venda.setTitulo(titulo);
+
+
 
     }
 

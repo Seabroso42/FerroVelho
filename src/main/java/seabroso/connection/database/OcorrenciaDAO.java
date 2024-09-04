@@ -1,8 +1,12 @@
 package seabroso.connection.database;
 
 import seabroso.models.Ocorrencia;
+import seabroso.models.Peca;
+import seabroso.models.User;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 
 public class OcorrenciaDAO {
@@ -11,18 +15,21 @@ public class OcorrenciaDAO {
 
     }
     //READ
-    public ArrayList<Ocorrencia> listarOcorrencias(){
+    public Set<Ocorrencia> listarOcorrencias(){
 
     }
-    public Ocorrencia buscarOcorrencia(){
+    public ArrayList<Ocorrencia> buscarOcorrencia(){
+        Set<Ocorrencia> data = listarOcorrencias();
+        ArrayList<Ocorrencia> result = null;
 
+        return result;
     }
     //UPDATE
-    public void atualizarOcorrencia(){
+    public void atualizarOcorrencia(Ocorrencia report){
 
     }
     //DELETE
-    public void deletarOcorrencia(){
+    public void deletarOcorrencia(Ocorrencia report){
 
     }
 }
