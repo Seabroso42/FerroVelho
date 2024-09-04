@@ -15,18 +15,17 @@ public class Anuncio {
     private String cidade;
 
     public Anuncio(){
-
     }
 
-    public void ocultarAnuncio(){
-        this.setIsAtivo(false);
-    }
     public Anuncio(UserVendedor dono, Peca produto) {
         this.dono = dono;
         this.produto = produto;
         this.isAtivo = true;
     }
 
+    public void ocultarAnuncio(){
+        this.setIsAtivo(false);
+    }
 
     public void addCarrinho(UserCliente cliente, int quantidade){
         ArrayList<ItemVenda> cart = cliente.getPedido().getCompras();

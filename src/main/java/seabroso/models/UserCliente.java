@@ -15,8 +15,8 @@ public class UserCliente extends User{
         this.setTipo(UserTypes.CLIENTE);
     }
     public Ocorrencia reclamar(UserVendedor culpado, String descricao){
-        Ocorrencia reclamacao= null;
-
+        Ocorrencia reclamacao= new Ocorrencia();
+        reclamacao.setDestino(culpado);
         return reclamacao;
     }
 

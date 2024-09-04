@@ -4,6 +4,7 @@ import lombok.Data;
 
 import java.sql.Time;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 
@@ -27,6 +28,9 @@ public class NotaFiscal {
     public void marcarEnvio(){
         this.setEnviada(true);
     }
-
+    public String formatDate(){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return this.getMomento().format(formatter);
+    }
 
 }

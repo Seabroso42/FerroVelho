@@ -2,11 +2,10 @@ package seabroso.enums;
 
 
 public enum VendorRanks {
-    INCONCLUSIVO,
     RUIM,
     PROBLEMATICO,
+    INCONCLUSIVO,
     BOM,
-    CONFIAVEL,
     EXCELENTE,
     CERTIFICADO
 }

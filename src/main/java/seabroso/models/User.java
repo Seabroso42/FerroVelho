@@ -4,9 +4,11 @@ import lombok.Data;
 import seabroso.enums.UserTypes;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 @Data
 public abstract class User {
+    private String imageURL;
     private long id;
     private String nome;
     private String username;
@@ -15,9 +17,9 @@ public abstract class User {
     private CarteiraDigital carteiraDigital;
     private long cpf;
     private UserTypes tipo;
-    private ArrayList<Notificacao> notiLista;
+    private LinkedList<Ocorrencia> notiLista;
     public User(){
-        this.notiLista= new ArrayList<Notificacao>();
+        this.notiLista= new LinkedList<>();
         this.carteiraDigital= new CarteiraDigital();
     }
 

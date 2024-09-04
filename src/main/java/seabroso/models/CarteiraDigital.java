@@ -19,12 +19,16 @@ public class CarteiraDigital {
     }
 
     public void depositar(Double valor){
-
+        Double saldoNovo= this.getSaldo() + valor;
+        this.setSaldo(saldoNovo);
     }
     public void sacar(Double valor){
+        Double saldoNovo= this.getSaldo() - valor;
+        this.setSaldo(saldoNovo);
+    }
+    public void addHistorico(NotaFiscal recibo){
+        ArrayList<NotaFiscal> hist= this.getHistorico();
+        hist.add(recibo);
+    }
 
-    }
-    public List<NotaFiscal> exibirHistorico(){
-        return historico;
-    }
 }

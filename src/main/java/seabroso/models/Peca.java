@@ -10,6 +10,7 @@ import java.time.format.DateTimeFormatter;
 
 @Data
 public class Peca {
+    private String imageURL;
     private long idPeca;
     private Double valor;
     private String nome;
@@ -34,8 +35,8 @@ public class Peca {
         LocalDate dataAtual= LocalDate.now();
         EstadoConserva[] estados= EstadoConserva.values();
         int result = dataAtual.getYear() - this.getDataFabricacao().getYear();
-        if (result != 0 && result <= 7){
-            EstadoConserva atualizado = estados[7 - result];
+        if (result != 0 && result <= 6){
+            EstadoConserva atualizado = estados[6 - result];
             this.setEstadoConserva(atualizado);
         }
     }

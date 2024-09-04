@@ -6,7 +6,7 @@ import lombok.Data;
 public class ItemVenda {
     private Integer quantidade;
     private Peca produto;
-    private Anuncio anuncio;
+
 
     public ItemVenda(Integer quantidade, Peca produto) {
         this.quantidade = quantidade;
