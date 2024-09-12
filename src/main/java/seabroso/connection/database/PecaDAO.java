@@ -12,6 +12,15 @@ import java.util.Objects;
 import java.util.Set;
 // mysql usa o formato de data "YYYY-MM-DD"
 public class PecaDAO {
+    private static PecaDAO instance;
+    public static PecaDAO getInstance() {
+        if (instance == null){
+            instance = new PecaDAO();
+            return instance;
+        }else {
+            return instance;
+        }
+    }
     //CREATE
     public void cadastrarPeca(Peca produto){
         String sql= "INSERT INTO  () VALUES ()";

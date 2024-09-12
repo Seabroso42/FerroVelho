@@ -2,17 +2,26 @@ package seabroso.connection.database;
 
 import seabroso.models.Anuncio;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class AnuncioDAO {
+    private static AnuncioDAO instance;
+
+    public static AnuncioDAO getInstance() {
+        if (instance == null){
+            instance = new AnuncioDAO();
+            return instance;
+        }else {
+            return instance;
+        }
+    }
     //CREATE
     public void cadastrarAnuncio(Anuncio anuncio){
 
     }
     //READ
-    public List<Anuncio> listarAnuncios(){
-        ArrayList<Anuncio> listagem= new ArrayList<>();
+    public Set<Anuncio> listarAnuncios(){
+        Set<Anuncio> listagem= new HashSet<>();
 
         return listagem;
     }
@@ -22,6 +31,10 @@ public class AnuncioDAO {
     }
     //DELETE
     public void deletarAnuncio(Anuncio anuncio){
+
+    }
+
+    public Optional<Anuncio> buscarAnuncio(){
 
     }
 

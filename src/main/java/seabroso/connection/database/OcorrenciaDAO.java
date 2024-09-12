@@ -10,6 +10,15 @@ import java.util.Set;
 
 
 public class OcorrenciaDAO {
+    private static OcorrenciaDAO instance;
+    public static OcorrenciaDAO getInstance() {
+        if (instance == null){
+            instance = new OcorrenciaDAO();
+            return instance;
+        }else {
+            return instance;
+        }
+    }
     //CREATE
     public void cadastrarOcorrencia(Ocorrencia problema){
 

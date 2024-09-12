@@ -16,9 +16,12 @@ public class UserAdmin extends User{
 
     public UserAdmin(){
         super();
+        this.setTipo(UserTypes.ADMIN);
+        this.setCarteiraDigital(null);
     }
     public void concluiOcorrencia(Ocorrencia ocorrencia){
         ocorrencia.setIsResolvida(true);
+        this.getNotiLista().remove(ocorrencia);
     }
     public void enviaNoti(User destino, Ocorrencia noti){
         LinkedList<Ocorrencia> mailBox= destino.getNotiLista();

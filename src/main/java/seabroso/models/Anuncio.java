@@ -27,10 +27,6 @@ public class Anuncio {
         this.setIsAtivo(false);
     }
 
-    public void addCarrinho(UserCliente cliente, int quantidade){
-        ArrayList<ItemVenda> cart = cliente.getPedido().getCompras();
-        ItemVenda produto = new ItemVenda(quantidade, this.getProduto());
-        cart.add(produto);
-    }
+
 
 }

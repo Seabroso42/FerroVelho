@@ -9,6 +9,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class NotaFiscalDAO {
+    private static NotaFiscalDAO instance;
+    public static NotaFiscalDAO getInstance() {
+        if (instance == null){
+            instance = new NotaFiscalDAO();
+            return instance;
+        }else {
+            return instance;
+        }
+    }
     //CREATE
     public void salvarNota(NotaFiscal nota){}
     //READ

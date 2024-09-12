@@ -12,6 +12,11 @@ public class CarteiraDigital {
     private long carteiraId;
     private ArrayList<NotaFiscal> historico;
 
+    public static void transferir(Double valor, User remetente, User destino){
+        remetente.getCarteiraDigital().sacar(valor);
+        destino.getCarteiraDigital().depositar(valor);
+    }
+
     public CarteiraDigital(){
         this.saldo= 0.00;
         this.debito= 0.00;

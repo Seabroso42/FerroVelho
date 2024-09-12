@@ -7,12 +7,13 @@ import seabroso.enums.UserTypes;
 import seabroso.enums.VendorRanks;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class UserVendedor extends User{
     private VendorRanks rank;
-    private ArrayList<Ocorrencia> problemas;
+    private LinkedList<Ocorrencia> problemas;
     private ArrayList<Anuncio> anuncios;
     private ArrayList<Peca> deposito;
 
@@ -22,12 +23,24 @@ public class UserVendedor extends User{
         this.setRank(VendorRanks.INCONCLUSIVO);
         this.anuncios= new ArrayList<>();
         this.deposito= new ArrayList<>();
+        this.problemas= new LinkedList<>();
     }
 
     public Anuncio criarAnuncio(Peca produto,String titulo){
         Anuncio venda= new Anuncio(this, produto);
         venda.setTitulo(titulo);
+        this.anuncios.add(venda);
         return venda;
+    }
+
+    public Peca criarPeca(String nome, int estoque){
+        Peca produto= new Peca();
+        produto.setDono(this);
+        produto.setNome(nome);
+        produto.setEstoque(estoque);
+        this.deposito.add(produto);
+
+        return produto;
     }
 
 

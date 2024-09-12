@@ -2,7 +2,6 @@ package seabroso.models;
 
 import lombok.Data;
 import seabroso.enums.EstadoConserva;
-import seabroso.enums.TiposPeca;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -11,6 +10,7 @@ import java.time.format.DateTimeFormatter;
 @Data
 public class Peca {
     private String imageURL;
+    private UserVendedor dono;
     private long idPeca;
     private Double valor;
     private String nome;
@@ -18,13 +18,12 @@ public class Peca {
     private String modelo;
     private LocalDate dataFabricacao;
     private EstadoConserva estadoConserva;
-    private TiposPeca tipo;
+    private String tipo;
     private int estoque;
 
     public Peca(){}
 
-    public Peca(long idPeca, String nome, String fabricante, String modelo, int estoque) {
-        this.idPeca = idPeca;
+    public Peca(String nome, String fabricante, String modelo, int estoque) {
         this.nome = nome;
         this.fabricante = fabricante;
         this.modelo = modelo;
