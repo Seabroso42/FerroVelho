@@ -1,7 +1,7 @@
 package seabroso.exceptions;
 
 public class OcorrenciaNegligenciadaException extends RuntimeException {
-    public OcorrenciaNegligenciadaException(String message) {
-        super(message);
+    public OcorrenciaNegligenciadaException() {
+        super("Ocorrencia ignorada por tempo demais!");
     }
 }

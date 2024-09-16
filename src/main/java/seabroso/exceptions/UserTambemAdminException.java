@@ -1,7 +1,7 @@
 package seabroso.exceptions;
 
 public class UserTambemAdminException extends RuntimeException {
-    public UserTambemAdminException(String message) {
-        super(message);
+    public UserTambemAdminException() {
+        super("Usuário tem o mesmo nível de acesso que você!");
     }
 }

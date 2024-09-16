@@ -1,0 +1,30 @@
+"SELECT * FROM ANUNCIOS"
+"INSERT INTO ANUNCIOS (donocod, idpeça, descriçao, cidade) VALUES (?,?,?,?)";
+"DELETE FROM ANUNCIOS WHERE donocod = ?";
+"UPDATE ANUNCIOS SET descricao= ?, cidade=?, idpeça=?" + "WHERE donocod = ? ";
+
+"SELECT * FROM NOTAFISCAL"
+"INSERT INTO NOTAFISCAL (momento, conteudo, valortotal, vendedor, cliente, enviada) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+"DELETE FROM NOTAFISCAL WHERE idnotafiscal = ?";
+"UPDATE NOTAFISCAL SET enviada= ?" + "WHERE idnotafiscal = ? ";
+
+"SELECT * FROM OCORRENCIAS"
+"INSERT INTO OCORRENCIAS (descricao, destino, remetente, importancia, rankVendedor, tipo, momento, mensagem) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+"DELETE FROM OCORRENCIAS WHERE codigo = ?";
+"UPDATE OCORRENCIAS SET descricao= ?, destino=?, remetente=?, importancia=?, rankVendedor=?, tipo=?, momento=?, mensagem=?" + "WHERE codigo = ? ";
+"UPDATE OCORRENCIAS SET rankVendedor= ?" + "WHERE codigo = ? ";
+
+"SELECT * FROM PEÇAS"
+"INSERT INTO PEÇAS (dono, nome, valor, estado_conserva, tipo, modelo, descriçao, estoque, datafabrica, imageurl) VALUES (?,?,?,?,?,?,?,?,?,?)";
+"DELETE FROM PEÇAS WHERE idpeça = ?";
+"UPDATE PEÇAS SET nome=?, valor=?, estado_conserva=?, tipo=?, modelo=?, descriçao=?, estoque=?, imageurl=?" + "WHERE idpeça = ? ";
+
+
+"SELECT * FROM CARTEIRAS"
+"INSERT INTO CARTEIRAS (iduser, saldo, debito) VALUES (?,?,?)";
+"DELETE FROM CARTEIRAS WHERE iduser = ?";
+"DELETE FROM CARTEIRAS WHERE idcarteira = ?";
+"UPDATE CARTEIRAS SET saldo= ?, debito=?" + "WHERE iduser = ?";
+
+
+
