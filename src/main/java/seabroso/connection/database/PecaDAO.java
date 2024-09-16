@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
 
+import static java.lang.String.valueOf;
+
 // mysql usa o formato de data "YYYY-MM-DD"
 public class PecaDAO {
     private static PecaDAO instance;
@@ -26,8 +28,16 @@ public class PecaDAO {
         PreparedStatement ps= null;
         try {
             ps= DataCon.getConexao().prepareStatement(sql);
-            ps.setString();
-            ps.setLong();
+            ps.setLong(1, produto.getDono().getId());
+            ps.setString(2, produto.getNome());
+            ps.setDouble(3, produto.getValor());
+            ps.setString(4, valueOf(produto.getEstadoConserva()).toLowerCase());
+            ps.setString(5, produto.getTipo());
+            ps.setString(6, produto.getModelo());
+            ps.setString(7, produto.getModelo() + " " + produto.getFabricante());
+            ps.setInt(8, produto.getEstoque());
+            ps.setString(9, produto.formatDate());
+            ps.setString(10, produto.getImageURL());
 
             ps.execute();
             System.out.println("sucesso!");
@@ -58,13 +68,23 @@ public class PecaDAO {
         }
         return listagem;
     }
-    public Optional<Peca> buscarPeca(String filtro){
+    public TreeSet<Peca> filtrarPecas(String busca){
+        Set<Peca> data = listarPecas();
+        TreeSet<Peca> result = new TreeSet<>();
+        for (Peca peca : data){
+            if (peca.getNome().contains(busca) || peca.getTipo().contains(busca) || peca.getModelo().contains(busca)){
+                result.add(peca);
+            }
+        }
+        return result;
+    }
+    public Optional<Peca> buscarPeca(long id){
         Set<Peca> data = listarPecas();
         Optional<Peca> result = Optional.empty();
-        try{
-
-        }catch (Exception e){
-            e.printStackTrace();
+        for (Peca peca : data){
+            if (peca.getIdPeca() == id){
+                result = Optional.of(peca);
+            }
         }
 
         return result;
@@ -77,10 +97,16 @@ public class PecaDAO {
         try {
             ps= DataCon.getConexao().prepareStatement(sql);
             //dados
-            ps.setString(1, String.valueOf());
-
-            //usuario a ser atualizado
-            ps.setLong(2, peca.getIdPeca());
+            ps.setString(1, peca.getNome());
+            ps.setDouble(2, peca.getValor());
+            ps.setString(3, valueOf(peca.getEstadoConserva()).toLowerCase());
+            ps.setString(4, peca.getTipo());
+            ps.setString(5, peca.getModelo());
+            ps.setString(6, peca.getModelo() + " " + peca.getFabricante());
+            ps.setInt(7, peca.getEstoque());
+            ps.setString(8, peca.getImageURL());
+            //peça a ser atualizada
+            ps.setLong(9, peca.getIdPeca());
 
             ps.execute();
 

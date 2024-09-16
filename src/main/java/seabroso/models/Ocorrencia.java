@@ -8,9 +8,23 @@ import seabroso.exceptions.OcorrenciaNegligenciadaException;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Data
-public class Ocorrencia {
+public class Ocorrencia implements Comparable<Ocorrencia> {
+    @Override
+    public int compareTo(Ocorrencia o) {
+        int pos= this.getImportancia().ordinal();
+        int nextpos= o.getImportancia().ordinal();
+        if (pos > nextpos){
+           return 1;
+        } else if (pos < nextpos){
+            return -1;
+        }else {
+            return 0;
+        }
+    }
+
     private long codigo;
     private User remetente;
     private String mensagem;
@@ -22,8 +36,7 @@ public class Ocorrencia {
     private LocalDateTime momento;
 
 
-    public Ocorrencia() {
-        this.mensagem= mensagem;
+    public Ocorrencia(){
         this.isResolvida= false;
         this.importancia= ImportanciaOcorrencia.NORMAL;
         this.momento= LocalDateTime.now();
@@ -39,9 +52,13 @@ public class Ocorrencia {
             this.setImportancia(atualizado);
         }else {
             if (result!= 0){
-                throw new OcorrenciaNegligenciadaException("essa ocorrência foi ignorada por tempo demais!");
+                throw new OcorrenciaNegligenciadaException();
             }
         }
+    }
+    public String formatDate(){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        return this.getMomento().format(formatter);
     }
 
 }

@@ -3,6 +3,9 @@ package seabroso.connection.database;
 import seabroso.connection.DataCon;
 import seabroso.enums.EstadoConserva;
 import seabroso.models.Anuncio;
+import seabroso.models.Peca;
+import seabroso.models.User;
+import seabroso.models.UserVendedor;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -43,6 +46,25 @@ public class AnuncioDAO {
         Set<Anuncio> listagem= new HashSet<>();
         ResultSet busca= null;
         String sql= "SELECT * FROM anuncio";
+        try {
+            PreparedStatement ps= DataCon.getConexao().prepareStatement(sql);
+            busca= ps.executeQuery();
+            while (busca.next()){
+                Anuncio anuncio= new Anuncio();
+                anuncio.setIdAnuncio(busca.getLong("idanuncio"));
+                User dono = UserDAO.getInstance().buscaUsuario(busca.getLong("donocod")).orElse(null);
+                anuncio.setDono((UserVendedor) dono);
+                Peca produto=PecaDAO.getInstance().buscarPeca(busca.getLong("idpeça")).orElse(null);
+                anuncio.setProduto(produto);
+                anuncio.setDescricao(busca.getString("descricao"));
+                anuncio.setCidade(busca.getString("cidade"));
+                listagem.add(anuncio);
+            }
+            ps.close();
+            busca.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
         return listagem;
     }

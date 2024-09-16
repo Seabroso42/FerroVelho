@@ -1,6 +1,7 @@
 package seabroso.connection.database;
 
 import seabroso.connection.DataCon;
+import seabroso.enums.UserTypes;
 import seabroso.enums.VendorRanks;
 import seabroso.models.User;
 import seabroso.models.UserAdmin;
@@ -233,11 +234,29 @@ public class UserDAO{
 
             for (User usuario : pesquisa){
                 if (usuario.getId() == identificador | usuario.getCpf() == identificador){
-                    resultado= Optional.ofNullable(usuario);
+                    resultado= Optional.of(usuario);
                 } else {
                     break;
                 }
             }
+
+        return resultado;
+    }
+    public Optional<UserVendedor> buscaVendedor(long identificador){
+        Set<User> pesquisa= UserDAO.listaUser();
+        Optional<UserVendedor> resultado= Optional.empty();
+        for (User usuario : pesquisa){
+            if (usuario.getTipo().equals(UserTypes.VENDEDOR)){
+                if (usuario.getId() == identificador | usuario.getCpf() == identificador){
+                    resultado= Optional.of((UserVendedor) usuario);
+                } else {
+                    break;
+                }
+            } else {
+                break;
+            }
+
+        }
 
         return resultado;
     }
