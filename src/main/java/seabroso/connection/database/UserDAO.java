@@ -29,7 +29,7 @@ public class UserDAO{
     }
 
     //CREATE
-    public void cadastroUser(UserVendedor usuario){
+    public void cadastroUserVendedor(UserVendedor usuario){
         String sql= "INSERT INTO USUARIOS (cpf, tipo, iduser, nome, email, senha, idcarteira, username, endereço, imageurl, ranking) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement ps= null;
         try {
@@ -55,7 +55,7 @@ public class UserDAO{
             e.printStackTrace();
         }
     }
-    public void cadastroUser(UserCliente usuario){
+    public void cadastroUserCliente(UserCliente usuario){
         String sql= "INSERT INTO USUARIOS (cpf, tipo, iduser, nome, email, senha, idcarteira, username, endereço, imageurl) VALUES (?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement ps= null;
         try {
@@ -81,7 +81,7 @@ public class UserDAO{
         }
 
     }
-    public void cadastroUser(UserAdmin usuario){
+    public void cadastroUserAdmin(UserAdmin usuario){
         String sql= "INSERT INTO USUARIOS (cpf, tipo, iduser, nome, email, senha, idcarteira, username, endereço, imageurl) VALUES (?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement ps= null;
         try {
@@ -142,7 +142,7 @@ public class UserDAO{
 
     }
 //READ
-    public static Set<User> listaUser(){
+    public Set<User> listaUser(){
         Set<User> listaBusca= new HashSet<>();
         String sql = "SELECT * FROM USUARIOS";
 
@@ -229,7 +229,7 @@ public class UserDAO{
         return listaBusca;
     }
     public Optional<User> buscaUsuario(long identificador){
-        Set<User> pesquisa= UserDAO.listaUser();
+        Set<User> pesquisa= listaUser();
         Optional<User> resultado = Optional.empty();
 
             for (User usuario : pesquisa){
@@ -243,7 +243,7 @@ public class UserDAO{
         return resultado;
     }
     public Optional<UserVendedor> buscaVendedor(long identificador){
-        Set<User> pesquisa= UserDAO.listaUser();
+        Set<User> pesquisa= listaUser();
         Optional<UserVendedor> resultado= Optional.empty();
         for (User usuario : pesquisa){
             if (usuario.getTipo().equals(UserTypes.VENDEDOR)){

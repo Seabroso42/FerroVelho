@@ -3,15 +3,16 @@ package seabroso.models;
 import seabroso.enums.UserTypes;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Role {
     UserTypes roleName;
-    Set<String> metodosPermitidos;
+    List<String> metodosPermitidos;
 
-    public Role(UserTypes cargo){
+    public Role(UserTypes cargo, List<String> metodos){
         this.roleName= cargo;
-        this.metodosPermitidos= new HashSet<>();
+        this.metodosPermitidos= metodos;
     }
     public boolean isAllowed(String method){
         return metodosPermitidos.contains(method);

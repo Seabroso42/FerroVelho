@@ -1,6 +1,7 @@
 package seabroso.controllers;
 
 import seabroso.controllers.data.*;
+import seabroso.models.User;
 
 public class ServerManager {
     private static ServerManager instance;
@@ -24,5 +25,10 @@ public class ServerManager {
         }
         return instance;
     }
+
+    public boolean autorizar(User usuario, String method){
+
+    }
+
 
 }
