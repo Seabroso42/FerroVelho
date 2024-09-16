@@ -11,6 +11,6 @@ public class AccessController {
         return instance;
     }
     public static boolean checkAccess(User usuario, String methodName){
-        return false;
+        return usuario.getCargo().isAllowed(methodName);
     }
 }

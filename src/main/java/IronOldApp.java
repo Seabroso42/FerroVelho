@@ -8,7 +8,7 @@ public class IronOldApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         //processador da arquivo em uma tela utilizável
-        FXMLLoader fxmlLoader = new FXMLLoader(IronOldApp.class.getResource("tela.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(IronOldApp.class.getResource("main.fxml"));
         //cena a ser carregada no stage, podendo ter diversas.
         Scene scene = new Scene(fxmlLoader.load(), 360, 720);
         //nome da janela

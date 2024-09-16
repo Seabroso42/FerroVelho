@@ -22,6 +22,7 @@ public abstract class User {
     public User(){
         this.notiLista= new LinkedList<>();
         this.carteiraDigital= new CarteiraDigital();
+        this.cargo= new Role(this.getTipo());
     }
 
 }
