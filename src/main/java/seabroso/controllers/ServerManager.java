@@ -1,6 +1,6 @@
 package seabroso.controllers;
 
-import seabroso.controllers.business.*;
+import seabroso.controllers.data.*;
 
 public class ServerManager {
     private static ServerManager instance;

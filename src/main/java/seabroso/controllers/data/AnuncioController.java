@@ -1,4 +1,4 @@
-package seabroso.controllers.business;
+package seabroso.controllers.data;
 
 import seabroso.connection.database.AnuncioDAO;
 import seabroso.connection.database.PecaDAO;

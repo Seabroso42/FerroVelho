@@ -1,4 +1,4 @@
-package seabroso.controllers.business;
+package seabroso.controllers.data;
 
 import seabroso.models.Peca;
 import seabroso.models.User;

@@ -1,4 +1,4 @@
-package seabroso.controllers.business;
+package seabroso.controllers.data;
 
 public class CarrinhoController {
     private static CarrinhoController instance;
