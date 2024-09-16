@@ -4,9 +4,7 @@ import seabroso.models.Ocorrencia;
 import seabroso.models.Peca;
 import seabroso.models.User;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 
 public class OcorrenciaDAO {
@@ -21,24 +19,33 @@ public class OcorrenciaDAO {
     }
     //CREATE
     public void cadastrarOcorrencia(Ocorrencia problema){
+        String sql= "INSERT INTO OCORRENCIAS (descricao, destino, remetente, importancia, rankVendedor, tipo, momento, mensagem) VALUES (?,?,?,?,?,?,?,?,?)";
 
     }
     //READ
     public Set<Ocorrencia> listarOcorrencias(){
+        String sql ="SELECT * FROM OCORRENCIAS";
 
     }
-    public ArrayList<Ocorrencia> buscarOcorrencia(){
+    public Optional<Ocorrencia> buscarOcorrencia(){
         Set<Ocorrencia> data = listarOcorrencias();
-        ArrayList<Ocorrencia> result = null;
+        Optional<Ocorrencia> result = Optional.empty();
+        try{
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
         return result;
     }
     //UPDATE
     public void atualizarOcorrencia(Ocorrencia report){
+        String sql= "UPDATE OCORRENCIAS SET descricao= ?, destino=?, remetente=?, importancia=?, rankVendedor=?, tipo=?, momento=?, mensagem=?" + "WHERE codigo = ? ";
 
     }
     //DELETE
     public void deletarOcorrencia(Ocorrencia report){
+        String sql= "DELETE FROM OCORRENCIAS WHERE codigo = ?";
 
     }
 }

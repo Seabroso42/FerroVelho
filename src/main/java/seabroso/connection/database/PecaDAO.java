@@ -6,10 +6,8 @@ import seabroso.models.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
+
 // mysql usa o formato de data "YYYY-MM-DD"
 public class PecaDAO {
     private static PecaDAO instance;
@@ -23,7 +21,8 @@ public class PecaDAO {
     }
     //CREATE
     public void cadastrarPeca(Peca produto){
-        String sql= "INSERT INTO  () VALUES ()";
+        String sql= "INSERT INTO PEÇAS (dono, nome, valor, estado_conserva, tipo, modelo, descriçao, estoque, datafabrica, imageurl) VALUES (?,?,?,?,?,?,?,?,?,?)";
+
         PreparedStatement ps= null;
         try {
             ps= DataCon.getConexao().prepareStatement(sql);
@@ -59,15 +58,21 @@ public class PecaDAO {
         }
         return listagem;
     }
-    public ArrayList<Peca> buscarPeca(String filtro){
+    public Optional<Peca> buscarPeca(String filtro){
         Set<Peca> data = listarPecas();
-        ArrayList<Peca> result = null;
+        Optional<Peca> result = Optional.empty();
+        try{
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
         return result;
     }
     //UPDATE
     public void atualizarPeca(Peca peca){
-        String sql = "UPDATE PEÇAS SET nome= ?" + "WHERE idpeca = ? ";
+        String sql = "UPDATE PEÇAS SET nome=?, valor=?, estado_conserva=?, tipo=?, modelo=?, descriçao=?, estoque=?, imageurl=?" + "WHERE idpeça = ? ";
+
         PreparedStatement ps = null;
         try {
             ps= DataCon.getConexao().prepareStatement(sql);
