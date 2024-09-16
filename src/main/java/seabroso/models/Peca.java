@@ -8,7 +8,18 @@ import java.time.format.DateTimeFormatter;
 
 
 @Data
-public class Peca {
+public class Peca implements Comparable<Peca>{
+    @Override
+    public int compareTo(Peca o) {
+        if (this.getEstoque() > o.getEstoque()){
+            return 1;
+        }else if (this.getEstoque() < o.getEstoque()){
+            return -1;
+        }else {
+            return 0;
+        }
+    }
+
     private String imageURL;
     private UserVendedor dono;
     private long idPeca;
