@@ -11,16 +11,6 @@ public class Carrinho {
     private User cliente;
     private Double valorTotal;
 
-    public Double calculaTotal(){
-       Double valorFinal = null;
-        for (ItemVenda item : this.getCompras()) {
-            double valor = item.getProduto().getValor();
-            double valorConjunto= item.getQuantidade() * valor;
-            valorFinal += valorConjunto;
-        }
-        return valorFinal;
-    }
-
     // o metodo de adicionar item novo ficou na classe de Cliente
 
     public void excluirItem(int pos){
@@ -33,7 +23,10 @@ public class Carrinho {
             compras.clear();
         }
     }
+    //TODO ajeitar esse metodo
     //usar stringbuilder pra construir a nota fiscal.
+    // chamar o method limparlista no final
+
     public NotaFiscal finalizarCompra(){
         NotaFiscal comprovante= new NotaFiscal();
         Double custo= 0.00;

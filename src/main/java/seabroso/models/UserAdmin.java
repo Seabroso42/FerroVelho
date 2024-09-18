@@ -42,7 +42,7 @@ public class UserAdmin extends User{
             CarteiraDigital bolso = usuario.getCarteiraDigital();
             bolso.setDebito(multa);
         }else{
-            throw new UserTambemAdminException("esse usuário está no mesmo patamar que você.");
+            throw new UserTambemAdminException();
         }
 
     }

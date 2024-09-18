@@ -13,6 +13,7 @@ import java.util.LinkedList;
 @EqualsAndHashCode(callSuper = true)
 public class UserVendedor extends User{
     private VendorRanks rank;
+    //mudar para sets
     private LinkedList<Ocorrencia> problemas;
     private ArrayList<Anuncio> anuncios;
     private ArrayList<Peca> deposito;
@@ -41,6 +42,10 @@ public class UserVendedor extends User{
         this.deposito.add(produto);
 
         return produto;
+    }
+
+    public void marcarEnvio(NotaFiscal recibo){
+
     }
 
 

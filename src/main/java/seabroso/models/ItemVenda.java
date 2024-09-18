@@ -17,11 +17,13 @@ public class ItemVenda implements Comparable<ItemVenda> {
 
     private Integer quantidade;
     private Peca produto;
+    private Double valorConjunto;
 
 
     public ItemVenda(Integer quantidade, Peca produto) {
         this.quantidade = quantidade;
         this.produto = produto;
+        this.valorConjunto = produto.getValor() * quantidade;
     }
 
 

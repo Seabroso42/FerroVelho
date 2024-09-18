@@ -12,6 +12,40 @@ import java.util.Optional;
 import java.util.Set;
 
 public class CarteiraDigitalDAO {
+    /* ajeitar essa porra depois
+    *  public void atualizaHistorico(CarteiraDigital carteira){
+        User dono= carteira.getDono();
+        ResultSet result= null;
+        try{
+            ArrayList<NotaFiscal> historico= new ArrayList<>();
+            if (dono.getTipo() == UserTypes.VENDEDOR){
+                String sql= "SELECT * FROM NOTAFISCAL WHERE vendedor= ? ";
+                PreparedStatement ps= DataCon.getConexao().prepareStatement(sql);
+                ps.setLong(1, dono.getId());
+                result= ps.executeQuery();
+
+            }else{
+                String sql= "SELECT * FROM NOTAFISCAL WHERE cliente= ? ";
+                PreparedStatement ps= DataCon.getConexao().prepareStatement(sql);
+                ps.setLong(1, dono.getId());
+                result= ps.executeQuery();
+            }
+            while (result.next()){
+                NotaFiscal nota= new NotaFiscal();
+                nota.setIdNotaFiscal();
+                nota.setCliente();
+                nota.setVendedor();
+                nota.setValorTotal();
+                nota.setMomento();
+                nota.setConteudo();
+                historico.add(nota);
+            }
+            carteira.setHistorico(historico);
+
+        }catch (SQLException e){
+
+        }
+    }*/
     private static CarteiraDigitalDAO instance;
     public static CarteiraDigitalDAO getInstance() {
         if (instance == null){

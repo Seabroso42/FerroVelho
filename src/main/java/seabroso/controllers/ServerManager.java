@@ -9,14 +9,14 @@ public class ServerManager {
     private UserController userController;
     private CarrinhoController carrinhoController;
     private CarteiraController carteiraController;
-    private NotaFiscalController notaFiscalController;
+
 
     private ServerManager() {
         accessController = AccessController.getInstance();
         userController = UserController.getInstance();
         carrinhoController = CarrinhoController.getInstance();
         carteiraController = CarteiraController.getInstance();
-        notaFiscalController = NotaFiscalController.getInstance();
+
     }
 
     public static ServerManager getInstance() {
@@ -26,9 +26,7 @@ public class ServerManager {
         return instance;
     }
 
-    public boolean autorizar(User usuario, String method){
-
-    }
+   // public boolean autorizar(User usuario, String method)
 
 
 }

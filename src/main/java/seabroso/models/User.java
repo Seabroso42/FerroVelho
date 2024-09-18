@@ -17,8 +17,8 @@ public abstract class User {
     private CarteiraDigital carteiraDigital;
     private long cpf;
     private UserTypes tipo;
-
     private LinkedList<Ocorrencia> notiLista;
+
     public User(){
         this.notiLista= new LinkedList<>();
         this.carteiraDigital= new CarteiraDigital();

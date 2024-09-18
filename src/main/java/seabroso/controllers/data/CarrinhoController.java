@@ -1,7 +1,13 @@
 package seabroso.controllers.data;
 
+import seabroso.connection.database.NotaFiscalDAO;
+
 public class CarrinhoController {
     private static CarrinhoController instance;
+    private NotaFiscalDAO notaFiscalDatabase;
+    private CarrinhoController(){
+        this.notaFiscalDatabase= NotaFiscalDAO.getInstance();
+    }
 
     public static CarrinhoController getInstance(){
         if(instance == null){
@@ -21,4 +27,5 @@ public class CarrinhoController {
     public void limparCarrinho(){
 
     }
+
 }

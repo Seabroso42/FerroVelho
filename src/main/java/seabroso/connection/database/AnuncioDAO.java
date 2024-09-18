@@ -55,7 +55,9 @@ public class AnuncioDAO {
                 User dono = UserDAO.getInstance().buscaUsuario(busca.getLong("donocod")).orElse(null);
                 anuncio.setDono((UserVendedor) dono);
                 Peca produto=PecaDAO.getInstance().buscarPeca(busca.getLong("idpeça")).orElse(null);
+                anuncio.setTitulo(busca.getString("titulo"));
                 anuncio.setProduto(produto);
+                anuncio.setIsAtivo(busca.getBoolean("ativo"));
                 anuncio.setDescricao(busca.getString("descricao"));
                 anuncio.setCidade(busca.getString("cidade"));
                 listagem.add(anuncio);
@@ -70,7 +72,7 @@ public class AnuncioDAO {
     }
     //UPDATE
     public void editarAnuncio(Anuncio anuncio){
-        String sql ="UPDATE ANUNCIOS SET descricao= ?, cidade=?, idpeça=?" + "WHERE idanuncio = ? ";
+        String sql ="UPDATE ANUNCIOS SET descricao= ?, cidade=?, idpeça=?, titulo=?" + "WHERE idanuncio = ? ";
 
 
         try{
@@ -78,11 +80,26 @@ public class AnuncioDAO {
             ps.setString(1, anuncio.getDescricao());
             ps.setString(2, anuncio.getCidade());
             ps.setLong(3, anuncio.getProduto().getIdPeca());
+            ps.setString(4, anuncio.getTitulo());
             //anuncio a ser editado
-            ps.setLong(4, anuncio.getIdAnuncio());
+            ps.setLong(5, anuncio.getIdAnuncio());
             ps.execute();
             ps.close();
             System.out.println("Anuncio editado com sucesso!");
+
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+    public void setAtividade(Anuncio anuncio, boolean atividade){
+        String sql ="UPDATE ANUNCIOS SET ativo= ? WHERE idanuncio = ? ";
+        try{
+            PreparedStatement ps= DataCon.getConexao().prepareStatement(sql);
+            ps.setBoolean(1, atividade);
+            ps.setLong(2, anuncio.getIdAnuncio());
+            ps.execute();
+            ps.close();
+            System.out.println("Visibilidade alterada!");
 
         }catch (SQLException e){
             throw new RuntimeException(e);
@@ -105,6 +122,7 @@ public class AnuncioDAO {
 
     }
 
+    //buscas
     public TreeSet<Anuncio> buscarAnuncioTitulo(String title){
         Set<Anuncio> pesquisa= listarAnuncios();
         TreeSet<Anuncio> resultado= new TreeSet<>();

@@ -58,7 +58,7 @@ public class Ocorrencia implements Comparable<Ocorrencia> {
     }
     public String formatDate(){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        return this.getMomento().format(formatter);
+        return this.getMomento()  .format(formatter);
     }
 
 }

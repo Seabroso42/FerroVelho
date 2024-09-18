@@ -17,6 +17,7 @@ public class TestHellDAOs {
     public static void main(String[] args) {
         TestHellDAOs inferno = new TestHellDAOs();
         //testes com métodos dos DAOS
+        /*
         System.out.println("-----testes DAOS-----");
         System.out.println("-----CREATE-----");
         inferno.anuncioDatabase.cadastrarAnuncio();
@@ -45,6 +46,8 @@ public class TestHellDAOs {
         inferno.ocorrenciaDatabase.deletarOcorrencia();
         inferno.pecaDatabase.excluirPeca();
         inferno.userDatabase.deletaUser();
+
+         */
     }
 
 }
